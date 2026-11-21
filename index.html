@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fitness Zone Metepec: gimnasio y centro fitness que pretende ayudarte a cambiar tu vida y mejorar tu imagen. Love Your Body.">
+  <meta name="theme-color" content="#080b09">
+
+  <title>Fitness Zone Metepec | Gimnasio &amp; Fitness</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #080b09;
+      --bg-elevated: #101512;
+      --bg-card: #151b17;
+      --text-main: #f5f7f6;
+      --text-muted: #a6b0a9;
+      --accent-fucsia: #ec3898;
+      --accent-zona: #f5e216;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand, .nav-cta, .button, .plan-name, .popular-label, .section-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* BARRA SUPERIOR */
+    .announcement {
+      background: var(--accent-fucsia);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.55rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-zona);
+      box-shadow: 0 0 0 0 rgba(245, 226, 22, 0.8);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(245, 226, 22, 0.8); }
+      70% { box-shadow: 0 0 0 8px rgba(245, 226, 22, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 226, 22, 0); }
+    }
+
+    /* ENCABEZADO */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 11, 9, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.9rem clamp(1rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.55rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-fucsia);
+      color: #ffffff;
+      border: 2px solid var(--accent-zona);
+      display: grid;
+      place-items: center;
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    .brand span span {
+      color: var(--accent-zona);
+    }
+
+    .brand small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .main-nav a:not(.nav-cta) {
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .main-nav a:not(.nav-cta):hover,
+    .main-nav a:not(.nav-cta).active {
+      color: var(--accent-zona);
+    }
+
+    .nav-cta {
+      background: var(--accent-zona);
+      color: #080b09;
+      padding: 0.45rem 0.95rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-fucsia);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+    }
+
+    /* CONTENEDORES DE SECCIÓN */
+    .section-shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-inline: clamp(1rem, 4vw, 2.5rem);
+    }
+
+    .section-pad {
+      padding-block: clamp(4rem, 8vw, 6.5rem);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-kicker {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent-zona);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-kicker span {
+      color: var(--text-muted);
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 0.98;
+      font-weight: 800;
+    }
+
+    .section-heading h2 em,
+    h1 em,
+    .about h2 em,
+    .schedule h2 em {
+      font-style: normal;
+      color: var(--accent-fucsia);
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      max-width: 560px;
+    }
+
+    /* BOTONES */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.45rem;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: var(--accent-fucsia);
+      color: #ffffff;
+    }
+
+    .button-primary:hover {
+      background: var(--accent-zona);
+      color: #080b09;
+    }
+
+    .button-outline {
+      background: transparent;
+      border-color: var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .button-outline:hover {
+      border-color: var(--accent-zona);
+      color: var(--accent-zona);
+    }
+
+    /* PORTADA PRINCIPAL */
+    .hero {
+      padding-block: clamp(3rem, 7vw, 5.5rem);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-zona);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow span {
+      width: 24px;
+      height: 2px;
+      background: var(--accent-fucsia);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.94;
+      font-weight: 900;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-points > div {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-points b {
+      color: var(--accent-zona);
+      font-size: 1rem;
+    }
+
+    .hero-image {
+      min-height: 440px;
+      border-radius: var(--radius-lg);
+      background-image: linear-gradient(180deg, rgba(8, 11, 9, 0.15) 45%, rgba(8, 11, 9, 0.9) 100%),
+        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    .hero-image-tag {
+      background: rgba(16, 21, 18, 0.9);
+      border-left: 4px solid var(--accent-fucsia);
+      padding: 0.85rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image-tag strong {
+      color: var(--accent-zona);
+      font-size: 1rem;
+    }
+
+    /* NOSOTROS */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .about p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .about-photo {
+      min-height: 300px;
+      border-radius: var(--radius-lg);
+      background-image: linear-gradient(180deg, rgba(8, 11, 9, 0.2), rgba(8, 11, 9, 0.88)),
+        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .about-photo span {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .about-photo strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      color: var(--accent-zona);
+      text-transform: uppercase;
+    }
+
+    /* INSTALACIONES */
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .facility-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .facility-card img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+    }
+
+    .facility-card > div {
+      padding: 1rem 1.15rem;
+    }
+
+    .facility-card span {
+      font-family: 'Barlow Condensed', sans-serif;
+      color: var(--accent-zona);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .facility-card h3 {
+      font-size: 1.3rem;
+      margin-top: 0.15rem;
+    }
+
+    /* SERVICIOS */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent-fucsia);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(236, 56, 152, 0.15);
+      color: var(--accent-fucsia);
+      font-size: 1.15rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* MEMBRESÍAS */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .plan-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-card.featured {
+      border-color: var(--accent-zona);
+      background: linear-gradient(180deg, rgba(245, 226, 22, 0.08) 0%, var(--bg-card) 100%);
+    }
+
+    .popular-label {
+      position: absolute;
+      top: -12px;
+      right: 1.25rem;
+      background: var(--accent-zona);
+      color: #080b09;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .plan-name {
+      color: var(--accent-fucsia);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .plan-card h3 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin: 0.35rem 0;
+    }
+
+    .plan-card h3 span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-transform: none;
+    }
+
+    .plan-description {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+      flex: 1;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .plan-card ul li::before {
+      content: "✓ ";
+      color: var(--accent-zona);
+      font-weight: 700;
+    }
+
+    /* ENTRENADORES */
+    .trainer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .trainer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding-bottom: 1.1rem;
+    }
+
+    .trainer-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      margin-bottom: 0.9rem;
+    }
+
+    .trainer-card h3 {
+      font-size: 1.35rem;
+      padding-inline: 1.1rem;
+    }
+
+    .trainer-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding-inline: 1.1rem;
+    }
+
+    /* HORARIOS */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .schedule h2 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .hours-list {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .hours-list > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    .hours-list strong {
+      color: var(--accent-zona);
+    }
+
+    .class-schedule {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+
+    .class-schedule h3 {
+      font-size: 1.5rem;
+      color: var(--accent-fucsia);
+      margin-bottom: 1.1rem;
+    }
+
+    .class-schedule > div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.95rem;
+    }
+
+    /* TESTIMONIOS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .testimonial-grid blockquote {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stars {
+      color: var(--accent-zona);
+      letter-spacing: 0.1em;
+    }
+
+    .testimonial-grid cite {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--accent-fucsia);
+      font-size: 0.9rem;
+    }
+
+    /* PREGUNTAS FRECUENTES */
+    .trial h2 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+    }
+
+    .faq-item summary {
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      color: var(--accent-zona);
+      font-size: 1.25rem;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-answer p {
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    /* CONTACTO */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .contact-line > span {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(245, 226, 22, 0.12);
+      color: var(--accent-zona);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-line small {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .text-link {
+      color: var(--accent-zona);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .map-frame {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      margin-top: 0.25rem;
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 230px;
+      border: 0;
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .contact-form h3 {
+      font-size: 1.6rem;
+      color: var(--accent-zona);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-form label {
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-fucsia);
+    }
+
+    .submit-button {
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    .form-feedback {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* PIE DE PÁGINA */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-block: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .site-footer > div {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .site-footer > div a:hover {
+      color: var(--accent-zona);
+    }
+
+    /* BOTÓN FLOTANTE WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 45;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent-fucsia);
+      color: #ffffff;
+      border: 2px solid var(--accent-zona);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero,
+      .about-grid,
+      .schedule-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem clamp(1rem, 4vw, 2rem);
+        gap: 0.9rem;
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="announcement">
+    <span class="pulse-dot"></span>
+    FITNESS ZONE METEPEC · LOVE YOUR BODY · INSCRIPCIÓN GRATIS
+  </div>
+
+  <!-- ENCABEZADO Y NAVEGACIÓN -->
+  <header class="site-header" id="top">
+
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">FZ</span>
+      <span>
+        FITNESS <span>ZONE</span>
+        <small>METEPEC · LOVE YOUR BODY</small>
+      </span>
+    </a>
+
+    
+
+      <!-- Identidad Visual Fitness Zone Metepec -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="bg-white px-3 py-1.5 rounded-xl shadow-md group-hover:scale-105 transition-transform">
+          <svg viewBox="0 0 245 78" class="w-32 sm:w-36 h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="152" cy="40" r="24" fill="#111111" stroke="#F5E216" stroke-width="3" stroke-dasharray="7 4"/>
+            <circle cx="152" cy="40" r="14" fill="#111111"/>
+            <rect x="44" y="6" width="4" height="14" rx="1" fill="#EC3898"/>
+            <rect x="50" y="4" width="5" height="18" rx="1" fill="#EC3898"/>
+            <rect x="57" y="2" width="6" height="22" rx="1" fill="#EC3898"/>
+            <line x1="40" y1="13" x2="108" y2="13" stroke="#EC3898" stroke-width="2.5"/>
+            <text x="74" y="10" text-anchor="middle" fill="#111111" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" letter-spacing="1">GYM</text>
+            <rect x="85" y="2" width="6" height="22" rx="1" fill="#EC3898"/>
+            <rect x="93" y="4" width="5" height="18" rx="1" fill="#EC3898"/>
+            <rect x="100" y="6" width="4" height="14" rx="1" fill="#EC3898"/>
+            <text x="8" y="43" fill="#EC3898" font-family="'Bebas Neue', sans-serif" font-size="34" letter-spacing="0.5">fitness</text>
+            <text x="9" y="54" fill="#D4C200" font-family="'Outfit', sans-serif" font-weight="800" font-size="8.5" letter-spacing="1.2">LOVE YOUR BODY</text>
+            <text x="105" y="57" fill="#F5E216" stroke="#111111" stroke-width="0.8" font-family="'Bebas Neue', sans-serif" font-size="30">zone</text>
+            <text x="122" y="72" fill="#EC3898" font-family="'Pacifico', cursive" font-size="19" transform="rotate(-6 122 72)">Metepec</text>
+          </svg>
+        </div>
+      </a>
+
+
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#membresias">Membresías</a>
+      <a href="#entrenadores">Entrenadores</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="#contacto">Formar parte ↗</a>
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- PORTADA PRINCIPAL -->
+    <section class="hero section-shell" id="inicio">
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          <span></span>
+          DISCIPLINA. CONSTANCIA. METEPEC.
+        </p>
+
+        <h1>
+          CAMBIA TU VIDA,<br>
+          <em>MEJORA TU IMAGEN.</em>
+        </h1>
+
+        <p class="hero-description">
+          En Fitness Zone Metepec te ayudamos a cambiar tu vida y mejorar tu imagen con un ambiente motivador, equipo completo y planes accesibles para todos.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contacto">
+            Formar parte →
+          </a>
+
+          <a class="button button-outline" href="#membresias">
+            Ver membresías ▶
+          </a>
+        </div>
+
+        <div class="hero-points">
+          <div>
+            <b>✣</b>
+            <span>Peso libre y<br>aparatos</span>
+          </div>
+
+          <div>
+            <b>♙</b>
+            <span>Promo<br>estudiantes</span>
+          </div>
+
+          <div>
+            <b>◇</b>
+            <span>Ambiente<br>motivador</span>
+          </div>
+
+          <div>
+            <b>↗</b>
+            <span>Inscripción<br>sin costo</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-image" role="img" aria-label="Atleta entrenando en Fitness Zone Metepec">
+        <div class="hero-image-tag">
+          ENTRENA MÁS, PAGA MENOS ·<br>
+          <strong>LOVE YOUR BODY.</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="about section-shell section-pad" id="nosotros">
+
+      <div class="section-kicker">
+        01 / <span>SOBRE NOSOTROS</span>
+      </div>
+
+      <div class="about-grid">
+
+        <div>
+          <h2>
+            MÁS QUE UN GIMNASIO,<br>
+            ES TU <em>ZONA DE CAMBIO.</em>
+          </h2>
+
+          <p>
+            Somos un gimnasio y centro fitness en Metepec que pretende ayudarte a cambiar tu vida y mejorar tu imagen. Un espacio enfocado en el progreso real, con horarios amplios y promociones pensadas para que nunca detengas tu constancia.
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <span>
+            @FITNESSZONEMETEPEC<br>
+            <strong>RESULTADOS REALES</strong>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INSTALACIONES -->
+    <section class="section-shell section-pad" id="instalaciones">
+
+      <div class="section-heading">
+
+        <div>
+          <div class="section-kicker">
+            02 / <span>CONOCE EL ESPACIO</span>
+          </div>
+
+          <h2>
+            NUESTRAS <em>INSTALACIONES</em>
+          </h2>
+
+          <p>
+            Todo lo que necesitas para entrenar en Metepec, en un solo lugar.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="facility-grid" id="facilityGrid">
+
+        <article class="facility-card">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=85" alt="Área de pesas">
+          <div><span>01</span><h3>Área de pesas</h3></div>
+        </article>
+
+        <article class="facility-card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85" alt="Área de cardio">
+          <div><span>02</span><h3>Cardio</h3></div>
+        </article>
+
+        <article class="facility-card">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85" alt="Entrenamiento funcional">
+          <div><span>03</span><h3>Entrenamiento funcional</h3></div>
+        </article>
+
+        <article class="facility-card">
+          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=900&q=85" alt="Aparatos integrados">
+          <div><span>04</span><h3>Aparatos y poleas</h3></div>
+        </article>
+
+        <article class="facility-card">
+          <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?auto=format&fit=crop&w=900&q=85" alt="Vestidores">
+          <div><span>05</span><h3>Vestidores</h3></div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services section-shell section-pad" id="servicios">
+
+      <div class="section-kicker">
+        03 / <span>ENTRENA A TU MANERA</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>SERVICIOS PARA <em>TUS METAS.</em></h2>
+          <p>Encuentra la modalidad que mejor se adapte a tu objetivo.</p>
+        </div>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <span class="service-icon">✣</span>
+          <h3>Musculación</h3>
+          <p>Entrenamiento de fuerza con mancuernas, barras y aparatos para distintos niveles.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-icon">♡</span>
+          <h3>Cardio</h3>
+          <p>Mejora tu resistencia y condición física a tu propio ritmo.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-icon">↗</span>
+          <h3>Funcional</h3>
+          <p>Ejercicios dinámicos para desarrollar fuerza, movilidad y resistencia.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-icon">◉</span>
+          <h3>Promo Estudiantes</h3>
+          <p>Tarifa preferencial presentando credencial escolar vigente.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-icon">♙</span>
+          <h3>Seguimiento en piso</h3>
+          <p>Orientación general para conocer el uso correcto de los equipos.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-icon">✧</span>
+          <h3>Planes de temporada</h3>
+          <p>Promociones trimestrales y descuentos especiales para nuevos socios.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- MEMBRESÍAS -->
+    <section class="membership section-shell section-pad" id="membresias">
+
+      <div class="section-kicker">
+        04 / <span>ELIGE TU PLAN</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>MEMBRESÍAS <em>FITNESS ZONE</em></h2>
+          <p>Opciones claras y accesibles con inscripción gratis.</p>
+        </div>
+      </div>
+
+      <div class="plans-grid">
+
+        <article class="plan-card">
+          <p class="plan-name">ESTUDIANTES</p>
+          <h3>$300<span> / mes</span></h3>
+          <p class="plan-description">Tarifa especial con credencial vigente.</p>
+
+          <ul>
+            <li>Inscripción gratis</li>
+            <li>Acceso a pesas y cardio</li>
+            <li>Horario de lunes a sábado</li>
+          </ul>
+
+          <a class="button button-outline plan-button" href="#contacto" data-plan="Estudiantes ($300/mes)">
+            Elegir plan
+          </a>
+        </article>
+
+        <article class="plan-card featured">
+          <div class="popular-label">MÁS POPULAR</div>
+          <p class="plan-name">MENSUALIDAD</p>
+          <h3>$350<span> / mes</span></h3>
+          <p class="plan-description">Acceso completo para tu rutina mensual.</p>
+
+          <ul>
+            <li>Inscripción gratis</li>
+            <li>Área de pesas y aparatos</li>
+            <li>Zona de cardio y funcional</li>
+            <li>Válida para nuevos socios</li>
+          </ul>
+
+          <a class="button button-primary plan-button" href="#contacto" data-plan="Mensualidad ($350/mes)">
+            Elegir plan
+          </a>
+        </article>
+
+        <article class="plan-card">
+          <p class="plan-name">TRIMESTRAL</p>
+          <h3>$850<span> / 3 meses</span></h3>
+          <p class="plan-description">Termina fuerte y asegura tu constancia.</p>
+
+          <ul>
+            <li>3 meses de entrenamiento</li>
+            <li>Ahorro frente a pago mensual</li>
+            <li>Acceso a todas las áreas</li>
+            <li>Válido para nuevos clientes</li>
+          </ul>
+
+          <a class="button button-outline plan-button" href="#contacto" data-plan="Trimestral ($850/3 meses)">
+            Elegir plan
+          </a>
+        </article>
+
+        <article class="plan-card">
+          <p class="plan-name">TEMPORADA</p>
+          <h3>15%<span> OFF</span></h3>
+          <p class="plan-description">Descuentos y promos especiales de mes.</p>
+
+          <ul>
+            <li>Hasta 15% de descuento en paquetes</li>
+            <li>Promociones de fin de año</li>
+            <li>Consulta vigencia en recepción</li>
+            <li>Sin inscripción</li>
+          </ul>
+
+          <a class="button button-outline plan-button" href="#contacto" data-plan="Promo de Temporada (15% OFF)">
+            Elegir plan
+          </a>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- ENTRENADORES -->
+    <section class="section-shell section-pad" id="entrenadores">
+
+      <div class="section-kicker">
+        05 / <span>TE ACOMPAÑAMOS</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>EQUIPO <em>FITNESS ZONE</em></h2>
+          <p>Ambiente cercano y dispuesto a apoyarte en el piso.</p>
+        </div>
+      </div>
+
+      <div class="trainer-grid">
+
+        <article class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=85" alt="Coach de fuerza">
+          <h3>Coach de Fuerza</h3>
+          <p>Rutinas de peso libre y técnica</p>
+        </article>
+
+        <article class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=700&q=85" alt="Coach de acondicionamiento">
+          <h3>Coach de Acondicionamiento</h3>
+          <p>Cardio, resistencia y tonificación</p>
+        </article>
+
+        <article class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=85" alt="Coach de hipertrofia">
+          <h3>Coach de Hipertrofia</h3>
+          <p>Progresión de cargas y aparatos</p>
+        </article>
+
+        <article class="trainer-card">
+          <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=700&q=85" alt="Atención y recepción">
+          <h3>Recepción y Socios</h3>
+          <p>Planes, promos y atención diaria</p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- HORARIOS -->
+    <section class="schedule section-shell section-pad" id="horarios">
+
+      <div class="section-kicker">
+        06 / <span>ORGANIZA TU ENTRENAMIENTO</span>
+      </div>
+
+      <div class="schedule-grid">
+
+        <div>
+          <h2>HORARIOS <em>DEL GIMNASIO</em></h2>
+          <p class="muted">Consulta nuestros horarios habituales en Metepec.</p>
+
+          <div class="hours-list">
+            <div>
+              <span>Lunes a viernes</span>
+              <strong>6:00 a.m. – 10:00 p.m.</strong>
+            </div>
+
+            <div>
+              <span>Sábado</span>
+              <strong>8:00 a.m. – 4:00 p.m.</strong>
+            </div>
+
+            <div>
+              <span>Avisos especiales</span>
+              <strong>Avisos en @fitnesszonemetepec</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="class-schedule">
+          <h3>ENFOQUES DEL DÍA</h3>
+
+          <div><span>Lunes y Jueves</span><b>Pierna, glúteo y tren inferior</b></div>
+          <div><span>Martes y Viernes</span><b>Pecho, espalda y brazo</b></div>
+          <div><span>Miércoles</span><b>Hombro, abdomen y cardio</b></div>
+          <div><span>Sábado</span><b>Sesión libre y cierre de semana</b></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials section-shell section-pad">
+
+      <div class="section-kicker">
+        07 / <span>LA COMUNIDAD FITNESS ZONE</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>EXPERIENCIAS <em>REALES</em></h2>
+          <p>Lo que destaca la comunidad al entrenar en Metepec.</p>
+        </div>
+      </div>
+
+      <div class="testimonial-grid">
+
+        <blockquote>
+          <div class="stars">★★★★★</div>
+          <p>“Buen ambiente, precios accesibles y el horario de la mañana me queda perfecto antes de trabajar.”</p>
+          <cite>— Socio en Metepec</cite>
+        </blockquote>
+
+        <blockquote>
+          <div class="stars">★★★★★</div>
+          <p>“La promo de estudiantes y sin inscripción ayuda muchísimo a mantenerte constante todo el mes.”</p>
+          <cite>— Miembro Estudiante</cite>
+        </blockquote>
+
+        <blockquote>
+          <div class="stars">★★★★★</div>
+          <p>“Siempre suben avisos claros de horarios especiales y promociones en su perfil.”</p>
+          <cite>— Cliente Frecuente</cite>
+        </blockquote>
+
+      </div>
+
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="trial section-shell section-pad" id="prueba">
+      <div>
+        <h2>PREGUNTAS <em>FRECUENTES</em></h2>
+
+        <section class="faq-section" id="preguntas-frecuentes">
+          <div class="faq-list">
+
+            <details class="faq-item">
+              <summary>¿La inscripción tiene costo?</summary>
+              <div class="faq-answer">
+                <p>No, nuestras mensualidades y promociones vigentes cuentan con inscripción gratis.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Cómo aplica la promoción para estudiantes?</summary>
+              <div class="faq-answer">
+                <p>Aplica presentando credencial vigente de estudiante directamente en recepción.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Cuáles son los horarios de lunes a viernes y sábados?</summary>
+              <div class="faq-answer">
+                <p>De lunes a viernes abrimos de 6:00 a.m. a 10:00 p.m., y los sábados de 8:00 a.m. a 4:00 p.m. (sujeto a avisos especiales en días festivos).</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Cómo me entero de cambios de horario o promos?</summary>
+              <div class="faq-answer">
+                <p>Publicamos todos los avisos, promociones y horarios especiales directamente en nuestro Instagram oficial @fitnesszonemetepec.</p>
+              </div>
+            </details>
+
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact section-shell section-pad" id="contacto">
+
+      <div class="section-kicker">
+        08 / <span>ESTAMOS PARA AYUDARTE</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>CONTACTO <em>FITNESS ZONE</em></h2>
+          <p>Escríbenos o visítanos en Metepec para resolver tus dudas.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+
+          <a href="https://www.instagram.com/fitnesszonemetepec" class="contact-line" id="instagramLink" target="_blank" rel="noopener">
+            <span>◉</span>
+            <div>
+              <small>INSTAGRAM OFICIAL</small>
+              <strong>@fitnesszonemetepec</strong>
+            </div>
+          </a>
+
+          <a href="https://g.page/FitnessZoneMetepec" class="contact-line" id="whatsappLink" target="_blank" rel="noopener">
+            <span>☎</span>
+            <div>
+              <small>PERFIL Y CONTACTO</small>
+              <strong>Fitness Zone Metepec</strong>
+            </div>
+          </a>
+
+          <div class="contact-line">
+            <span>⌖</span>
+            <div>
+              <small>UBICACIÓN</small>
+              <strong id="addressText">Metepec, Estado de México</strong>
+            </div>
+          </div>
+
+          <a class="text-link" id="mapsLink" href="https://g.page/FitnessZoneMetepec" target="_blank" rel="noopener">
+            Cómo llegar en Google Maps ↗
+          </a>
+
+          <div class="map-frame">
+            <iframe
+              id="mapFrame"
+              title="Mapa de ubicación de Fitness Zone Metepec"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Fitness%20Zone%20Metepec%2C%20Estado%20de%20M%C3%A9xico&output=embed">
+            </iframe>
+          </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+        <form
+          class="contact-form"
+          id="contactForm"
+          name="contacto"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field">
+
+          <input type="hidden" name="form-name" value="contacto">
+
+          <p class="hidden">
+            <label>No llenar: <input name="bot-field"></label>
+          </p>
+
+          <h3>ENVÍANOS UN MENSAJE</h3>
+
+          <label for="name">Nombre completo</label>
+          <input
+            id="name"
+            name="nombre"
+            type="text"
+            placeholder="Tu nombre"
+            required>
+
+          <label for="email">Correo electrónico</label>
+          <input
+            id="email"
+            name="correo"
+            type="email"
+            placeholder="tucorreo@ejemplo.com"
+            required>
+
+          <label for="interest">¿Qué te interesa?</label>
+          <select id="interest" name="interes">
+            <option value="Información general">Información general</option>
+            <option value="Mensualidad ($350/mes)">Mensualidad ($350/mes)</option>
+            <option value="Estudiantes ($300/mes)">Estudiantes ($300/mes)</option>
+            <option value="Trimestral ($850/3 meses)">Trimestral ($850/3 meses)</option>
+            <option value="Promo de Temporada (15% OFF)">Promo de Temporada (15% OFF)</option>
+          </select>
+
+          <label for="message">Mensaje</label>
+          <textarea
+            id="message"
+            name="mensaje"
+            rows="4"
+            placeholder="Cuéntanos qué plan o horario te interesa..."
+            required></textarea>
+
+          <button class="button button-primary submit-button" type="submit">
+            Enviar mensaje →
+          </button>
+
+          <p class="form-feedback" id="formFeedback">
+            Al enviar, tus datos se compartirán con el equipo de Fitness Zone Metepec.
+          </p>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer section-shell">
+
+    <a class="brand" href="#top">
+      <span class="brand-mark">FZ</span>
+      <span>
+        FITNESS <span>ZONE</span>
+        <small>METEPEC · LOVE YOUR BODY</small>
+      </span>
+    </a>
+
+    <p>
+      © <span id="year"></span> Fitness Zone Metepec. Todos los derechos reservados.
+    </p>
+
+    <div>
+      <a href="#contacto">Contacto</a>
+      <a href="#membresias">Membresías</a>
+      <a href="#top">Volver arriba ↑</a>
+    </div>
+
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE CONTACTO / INSTAGRAM -->
+  <a
+    class="whatsapp-float"
+    id="whatsappFloat"
+    href="https://www.instagram.com/fitnesszonemetepec"
+    target="_blank"
+    rel="noopener"
+    aria-label="Ir a Instagram de Fitness Zone Metepec">
+    ◉
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mainNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const interestSelect = document.getElementById('interest');
+    document.querySelectorAll('.plan-button[data-plan]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const planValue = btn.getAttribute('data-plan');
+        const exists = Array.from(interestSelect.options).some((opt) => opt.value === planValue);
+        if (exists) {
+          interestSelect.value = planValue;
+        }
+      });
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+    contactForm.addEventListener('submit', (e) => {
+      if (!contactForm.hasAttribute('data-submitted')) {
+        formFeedback.textContent = 'Listo: tu mensaje está preparado para enviarse.';
+      }
+    });
+  </script>
+
+</body>
+</html>
